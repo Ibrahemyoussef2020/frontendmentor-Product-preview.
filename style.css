@@ -1,0 +1,157 @@
+:root {
+    --clr-primary-400: hsl(158, 36%, 37%);
+    --clr-primary-500: hsl(158, 36%, 20%);
+    --clr-secondary-200: hsl(30, 38%, 92%);
+
+    --clr-neutral-900: hsl(212, 21%, 14%);
+    --clr-neutral-400: hsl(228, 12%, 48%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-accent: "Fraunces", serif;
+    --ff-base: "Montserrat", sans-serif;
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+
+    --fs-small:.825rem
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+}
+
+body {
+  height: 100vh;
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    font-size:.875rem;
+    line-height: 1.7;
+    color: var(--clr-neutral-400);
+    background-color: var(--clr-secondary-200);
+    
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+/*
+    5. Improve media defaults
+  */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* utilities */
+
+.flex-group{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sr-only{
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+/* component */
+
+.btn{
+  width:100%;
+  padding: .250rem 1rem;
+  margin: 0 auto;
+  display: inline-flex;
+  place-content: center;
+  align-items: center;
+  font-size:.825rem;
+  font-weight: var(--fw-bold);
+  border:none;
+  border-radius: .5rem;
+  outline-color: transparent;
+  color: var(--clr-secondary-200);
+  background-color: var(--clr-primary-400);
+  cursor: pointer;
+}
+
+.btn img {
+  width:15px;
+  height:15px;
+  margin:0 10px 3px 0;
+}
+
+.btn:is(:hover,:focus){
+  opacity:.8;
+}
+
+/* cart */
+
+.product{
+  --content-padding:1.5rem;
+  --content-spacing:1rem;
+
+  display: grid;
+  max-width: 600px;
+  border-radius: .5rem;
+  overflow:hidden;
+  background-color: var(--clr-neutral-100);
+}
+
+.product__content{
+  padding:var(--content-padding);
+  display: grid;
+  gap: var(--content-spacing);
+}
+
+.product__category{
+  font-size: var(--fs-small);
+  letter-spacing:3px;
+  text-transform: uppercase;
+}
+
+.product__title{
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  color: var(--clr-neutral-900);
+  line-height:1;
+}
+
+.product__summary{
+font-size: var(--fs-small);
+color: var(--clr-neutral-400);
+}
+
+
+/* price */
+
+.product__current-price{
+  font-family: var(--ff-accent);
+  font-size: 2rem;
+  color: var(--clr-primary-400);
+}
+
+
+@media (min-width:600px) {
+  .product{
+    --content-padding:2rem;
+    grid-template-columns:1fr 1fr;
+  }
+}
